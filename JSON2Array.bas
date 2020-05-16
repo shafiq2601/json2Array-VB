@@ -4,9 +4,9 @@ Dim rowCount     As Long
 Dim colCount     As Long
 Dim valRow()     As Variant
 Dim ScriptEngine As Object
-
+'*******************************************************************************************************
 Public Function Keys(ByVal jsonOb As Object) As String()
-    
+'*******************************************************************************************************    
     Dim KeysOb As Object
     Dim Key As Variant
     Dim KeyList() As String
@@ -22,8 +22,9 @@ Public Function Keys(ByVal jsonOb As Object) As String()
     
     Keys = KeyList
 End Function
+'*******************************************************************************************************
 Public Function JSON2Array(ByVal strResponse As String) As Variant()
-
+'*******************************************************************************************************
     Dim jsonOb As Object
     
     Set ScriptEngine = CreateObject("MSScriptcontrol.scriptControl")
@@ -36,8 +37,9 @@ Public Function JSON2Array(ByVal strResponse As String) As Variant()
    GetRecData jsonOb, "", JSON2Array
    
 End Function
+'*******************************************************************************************************
 Sub GetRecData(ByVal ParentOb As Object, ByVal property As String, finalArray() As Variant)
-   
+'*******************************************************************************************************   
    Dim KeyName, KeyVal As Variant
    Dim i, j As Integer
    Dim ChildOb As Object
@@ -73,19 +75,20 @@ Sub GetRecData(ByVal ParentOb As Object, ByVal property As String, finalArray() 
         Next KeyName
         ReDim Preserve valRow(colCount - 1)
         colCount = colCount - 1
-   
    End If
-
 End Sub
+'*******************************************************************************************************
 Sub DemoJsonToArray()
+'*******************************************************************************************************
     Dim strResponse As String
     Dim valtab() As Variant
     strResponse = "{""Bihar"": {""district"": {""Katihar"":{""male"": 10000000,""female"": 800000,""age-group"": {""0-17"": 1000000,""18-59"": 600000,""60-120"": 200000}},""Darbhanga"": {""male"": 8000000,""female"": 700000,""age-group"":{""0-17"": 600000,""18-59"": 800000,""60-120"": 100000}}}},""Maharashtra"": {""district"": {""Ahmednagar"": {""male"": 6000000,""female"": 400000,""age-group"": {""0-17"": 500000,""18-59"": 400000,""60-120"": 100000}},""Mumbai"":{""male"": 80000000,""female"": 7500000,""age-group"": {""0-17"": 5000000,""18-59"": 8000000,""60-120"": 2500000}}}}}"
     valtab() = JSON2Array(strResponse)
     moveToSheet valtab, 1
 End Sub
-
+'*******************************************************************************************************
 Sub moveToSheet(valtab() As Variant, sheetNum As Integer)
+'*******************************************************************************************************
     Dim i, j
     For i = 0 To UBound(valtab)
         For j = 0 To UBound(valtab(i))
