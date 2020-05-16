@@ -6,6 +6,9 @@ This helps in accessing the resultant array easily with index positions instead 
 Its easier to move this array to excel worksheet.
 
 Pre-Requisite:
-OS : Windows (Not tested on Mac)
-MS-OFFICE: 2007 and later
+1.  OS        : Windows (Not tested on Mac)
+2.  MS-OFFICE : 2007 and later
 
+Installation:
+1. Import JsonConverter.bas into your project (Open VBA Editor, Alt + F11; File > Import File)
+2. Refer sample subroutine DemoJsonToArray for usage example
