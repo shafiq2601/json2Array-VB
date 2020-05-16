@@ -10,5 +10,5 @@ Pre-Requisite:
 2.  MS-OFFICE : 2007 and later
 
 Installation:
-1. Import JsonConverter.bas into your project (Open VBA Editor, Alt + F11; File > Import File)
+1. Import JSON2Array.bas into your project (Open VBA Editor, Alt + F11; File > Import File)
 2. Refer sample subroutine DemoJsonToArray for usage example.
