@@ -4,6 +4,7 @@ Dim rowCount     As Long
 Dim colCount     As Long
 Dim valRow()     As Variant
 Dim ScriptEngine As Object
+
 Public Function Keys(ByVal jsonOb As Object) As String()
     
     Dim KeysOb As Object
@@ -62,8 +63,7 @@ Sub GetRecData(ByVal ParentOb As Object, ByVal property As String, finalArray() 
             KeyVal = ScriptEngine.Run("getProperty", ChildOb, KeyName)
             If InStr(KeyVal, "[object Object]") > 0 Then
                 Call GetRecData(ChildOb, KeyName, finalArray)
-            Else
-                    
+            Else                    
                 ReDim Preserve valRow(colCount)
                 valRow(UBound(valRow)) = KeyVal
                 rowCount = rowCount + 1
@@ -78,11 +78,11 @@ Sub GetRecData(ByVal ParentOb As Object, ByVal property As String, finalArray() 
 
 End Sub
 Sub DemoJsonToArray()
-Dim strResponse As String
-Dim valtab() As Variant
-strResponse = "{""Bihar"": {""district"": {""Katihar"":{""male"": 10000000,""female"": 800000,""age-group"": {""0-17"": 1000000,""18-59"": 600000,""60-120"": 200000}},""Darbhanga"": {""male"": 8000000,""female"": 700000,""age-group"":{""0-17"": 600000,""18-59"": 800000,""60-120"": 100000}}}},""Maharashtra"": {""district"": {""Ahmednagar"": {""male"": 6000000,""female"": 400000,""age-group"": {""0-17"": 500000,""18-59"": 400000,""60-120"": 100000}},""Mumbai"":{""male"": 80000000,""female"": 7500000,""age-group"": {""0-17"": 5000000,""18-59"": 8000000,""60-120"": 2500000}}}}}"
-valtab() = JSON2Array(strResponse)
-moveToSheet valtab, 1
+    Dim strResponse As String
+    Dim valtab() As Variant
+    strResponse = "{""Bihar"": {""district"": {""Katihar"":{""male"": 10000000,""female"": 800000,""age-group"": {""0-17"": 1000000,""18-59"": 600000,""60-120"": 200000}},""Darbhanga"": {""male"": 8000000,""female"": 700000,""age-group"":{""0-17"": 600000,""18-59"": 800000,""60-120"": 100000}}}},""Maharashtra"": {""district"": {""Ahmednagar"": {""male"": 6000000,""female"": 400000,""age-group"": {""0-17"": 500000,""18-59"": 400000,""60-120"": 100000}},""Mumbai"":{""male"": 80000000,""female"": 7500000,""age-group"": {""0-17"": 5000000,""18-59"": 8000000,""60-120"": 2500000}}}}}"
+    valtab() = JSON2Array(strResponse)
+    moveToSheet valtab, 1
 End Sub
 
 Sub moveToSheet(valtab() As Variant, sheetNum As Integer)
