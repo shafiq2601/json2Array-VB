@@ -11,4 +11,4 @@ Pre-Requisite:
 
 Installation:
 1. Import JsonConverter.bas into your project (Open VBA Editor, Alt + F11; File > Import File)
-2. Refer sample subroutine DemoJsonToArray for usage example
+2. Refer sample subroutine DemoJsonToArray for usage example.
